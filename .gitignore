@@ -1,0 +1,22 @@
+# Ejecutables (Los que genera tu Makefile)
+compresor_serial
+descompresor_serial
+compresor_fork
+descompresor_fork
+compresor_threads
+descompresor_threads
+
+# Archivos comprimidos de salida
+*.bin
+
+# Archivos temporales de los hijos (del motor fork)
+temp_hijo_*.bin
+
+# Carpetas de resultados
+descomprimido_serial/
+descomprimido_fork/
+descomprimido_threads/
+
+# Archivos de objetos y basura del sistema
+*.o
+.DS_Store

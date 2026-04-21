@@ -16,8 +16,23 @@ sudo apt-get install -y build-essential gcc
 # 2. Compilación del proyecto
 # Usamos el Makefile para generar los 6 ejecutables (serial, fork, threads)
 echo "[2/2] Compilando código fuente..."
-if [ -f "Makefile" ]; then
-    make clean
+if [ -f "Makefile" ] || [ -f "makefile" ]; then
+    make clean > /dev/null 2>&1
+    
+    #Capturamos el código de salida
+    status=$?
+    
+    # El código 127 significa "comando no encontrado"
+    if [ $status -eq 127 ]; then
+    	echo "Error: El comando make no fue instalado correctamente."
+    	echo "Ejecute nuevamente el instalador automatizado del programa"
+    	exit 1	
+    elif [ $status -ne 0 ]; then
+    	echo "Error: Ocurrió un problema al ejecutar make (Código: $status)."
+    	echo "Ejecute nuevamente el instalador automatizado del programa"
+    	exit $status	
+    fi
+    
     make
 else
     echo "Error: No se encontró el Makefile en la raíz."

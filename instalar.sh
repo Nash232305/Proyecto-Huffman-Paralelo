@@ -25,11 +25,11 @@ if [ -f "Makefile" ] || [ -f "makefile" ]; then
     # El código 127 significa "comando no encontrado"
     if [ $status -eq 127 ]; then
     	echo "Error: El comando make no fue instalado correctamente."
-    	echo "Ejecute nuevamente el instalador automatizado del programa"
+    	echo "Ejecute nuevamente el instalador automatizado del programa."
     	exit 1	
     elif [ $status -ne 0 ]; then
     	echo "Error: Ocurrió un problema al ejecutar make (Código: $status)."
-    	echo "Ejecute nuevamente el instalador automatizado del programa"
+    	echo "Ejecute nuevamente el instalador automatizado del programa."
     	exit $status	
     fi
     
